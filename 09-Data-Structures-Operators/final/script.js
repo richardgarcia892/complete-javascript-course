@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekdays[3]]: {
@@ -296,7 +297,7 @@ Let's continue with our football betting app! This time, we have a map with a lo
 
 GOOD LUCK 😀
 */
-
+/*
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
   [36, '🔁 Substitution'],
@@ -310,6 +311,24 @@ const gameEvents = new Map([
   [80, '⚽️ GOAL'],
   [92, '🔶 Yellow card'],
 ]);
+
+console.log(gameEvents);
+
+let events = new Set(gameEvents.values());
+console.log(events);
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+console.log(`An event happened, on average, every ${90 / events.size} minutes`);
+
+for (const [key, value] of gameEvents) {
+  const string =
+    key > 45
+      ? `[SECOND HALF] ${key}: ${value}`
+      : `[FIRST HALF] ${key}: ${value}`;
+  console.log(string);
+}
 
 /*
 // 1.
@@ -468,6 +487,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 GOOD LUCK 😀
 */
 
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -509,6 +529,22 @@ const game = {
   },
 };
 
+for (let [i, player] of Object.entries(game.scored)) {
+  console.log(`score ${i}: ${player}`);
+}
+
+let oddTotal = 0;
+for (let odd of Object.values(game.odds)) {
+  oddTotal += odd;
+}
+console.log(
+  `Average odd: ${(oddTotal / Object.values(game.odds).length).toFixed(2)}`
+);
+
+for (let [team, odds] of Object.entries(game.odds)) {
+  let string = team === 'x' ? 'draw' : `Victory ${team}`;
+  console.log(`odd of ${string}: ${odds}`);
+}
 /*
 // 1.
 for (const [i, player] of game.scored.entries())
